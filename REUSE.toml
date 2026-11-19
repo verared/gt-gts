@@ -1,0 +1,20 @@
+version = 1
+
+# Export generado por tools/export_module.py (fuente: verared/gerarion v3.2.0).
+# Cobertura completa del paquete (precedencia override).
+
+# code — MIT OR Apache-2.0
+
+[[annotations]]
+precedence = "override"
+path = ["impl-c/clock/gus_clock.c", "impl-c/clock/gus_clock.h", "src/gerarion/gts/__init__.py", "src/gerarion/gts/clock.py", "src/gerarion/gts/roughtime.py"]
+SPDX-License-Identifier = "MIT OR Apache-2.0"
+SPDX-FileCopyrightText = "2026 verared contributors"
+
+# docs — CC-BY-4.0
+
+[[annotations]]
+precedence = "override"
+path = ["NOTICE", "README.es.md", "README.md", "docs/specs/GTS.en.md", "docs/specs/GTS.es.md"]
+SPDX-License-Identifier = "CC-BY-4.0"
+SPDX-FileCopyrightText = "2026 verared contributors"
