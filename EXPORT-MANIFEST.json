@@ -1,0 +1,30 @@
+{
+  "schema": "gerarion-export-manifest/1",
+  "module": "gt-gts",
+  "version": "3.2.2",
+  "maturity": "stable-core/experimental-roughtime",
+  "source_repo": "verared/gerarion",
+  "source_tag": "v3.2.2",
+  "source_commit": "322a650bd6bced29492fdb2e4dd1113828421ebe",
+  "dependencies": {
+    "gt-core": ">=3.2.0,<4.0.0"
+  },
+  "files": {
+    "LICENSE": "5100ec704387838d4b95d6fd6a98d82fe8ee918e470994440c44801cd66b0cd0",
+    "LICENSES/Apache-2.0.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "LICENSES/CC-BY-4.0.txt": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+    "LICENSES/CC0-1.0.txt": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+    "LICENSES/MIT.txt": "757fbdb81df81bd060d17276424bd4fc26269e780599988c3ce8fba4260b0b20",
+    "NOTICE": "6af3a8bb6fe83f1b2d2f3d76528ab1f2b8e56da842c1de81673385821513e835",
+    "README.es.md": "c722a3968db6e7408cedea63d07e3112371509d7434f47fa17cf90edaa5f6a25",
+    "README.md": "054f0abff31c10c9ea410cbd2356fe74d8eb5af6f9c88fbbcc5739f3ef180c44",
+    "REUSE.toml": "07ca57cc9f7c0f7b1292910caab648a2e212f1f14174bd4a9a83f6c429e83b82",
+    "docs/specs/GTS.en.md": "98c80eb3972c93fae6ea46a92e7b297e3fc5d210463533235b8dd2896f695bbc",
+    "docs/specs/GTS.es.md": "917429e1f13fe0a3f53c3dc9f685e55cad146c5f2745833dac1841ba64c475ec",
+    "impl-c/clock/gus_clock.c": "f3cb99a99dedd0e6651d22bde2cc1347012d5cd983441825a5a53aa4c5181cd5",
+    "impl-c/clock/gus_clock.h": "79eff4bc23009fadb70e0c078b6259a2eca68805b31e00980073cff1fdc83e20",
+    "src/gerarion/gts/__init__.py": "915d214a9cfce74a8ed698997e530861bcbe7601d9449b77e7b4776ce6daa470",
+    "src/gerarion/gts/clock.py": "5ab7e5fcaa88c37d4ae06e52e4bf18a8b5712707852e21093a314c2c2ac750d9",
+    "src/gerarion/gts/roughtime.py": "14fdd741a0073bb59628f3eb1e46143a6e37cf0366b1485388aea7aa8b6ade91"
+  }
+}
