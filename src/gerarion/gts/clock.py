@@ -102,7 +102,7 @@ class ClockAnchorStore:
     """Último ancla de confianza persistido (JSON atómico, sin dependencias).
 
     Guarda (instant, nanos, monotonic_ns, source_id, uncertainty_ns) del
-    último estado VERIFIED/HOLDOVER aceptado. Cargar el archivo no eleva
+    último estado VERIFIED aceptado. Cargar el archivo no eleva
     nunca la calidad de una lectura: solo habilita HOLDOVER y detecta
     rollback.
     """
@@ -114,7 +114,7 @@ class ClockAnchorStore:
             try:
                 with open(path, "r", encoding="utf-8") as fh:
                     data = json.load(fh)
-                if data.get("instant") is not None:
+                if data.get("instant") is not None and data.get("state") == ClockState.VERIFIED.value:
                     self._anchor = ClockReading(
                         instant=int(data["instant"]),
                         nanos=int(data.get("nanos", 0)),
@@ -220,12 +220,13 @@ class TrustedClock:
         # la lectura es coherente con el delta monotónico (± deriva máxima).
         if (
             anchor is not None
+            and anchor.state is ClockState.VERIFIED
             and anchor.monotonic_ns > 0
             and reading.monotonic_ns >= anchor.monotonic_ns
             and self.policy.max_holdover_s > 0
         ):
             dt_ns = reading.monotonic_ns - anchor.monotonic_ns
-            if dt_ns // 1_000_000_000 <= self.policy.max_holdover_s:
+            if dt_ns <= self.policy.max_holdover_s * 1_000_000_000:
                 expected = anchor.instant + dt_ns // 1_000_000_000
                 drift = abs(reading.instant - expected)
                 max_drift_s = 2 + (
@@ -247,7 +248,6 @@ class TrustedClock:
                         uncertainty_ns=grown_uncertainty,
                         monotonic_ns=reading.monotonic_ns,
                     )
-                    self.store.update(holddover)
                     return holddover
 
         # 4) Sin fuente confiable: UNVERIFIED (o REJECTED en estricta).

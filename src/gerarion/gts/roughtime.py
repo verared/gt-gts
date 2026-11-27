@@ -277,15 +277,21 @@ def bind_anchor(receipt: dict) -> dict:
 
 
 def verify_anchor(anchor: dict, trusted_pubkeys_b64: Iterable[str] = (),
-                  gst_instant: Optional[int] = None) -> dict:
+                  gst_instant: Optional[int] = None, *, expected_nonce: bytes) -> dict:
     """Verifica un anchor de la GST: receipt + coherencia de ventana.
 
+    expected_nonce debe ser el digest de 32 bytes calculado por el llamador
+    sobre el sello/bundle exacto, nunca un valor extraído del recibo.
     Si se pasa gst_instant, comprueba la cota de existencia:
     gst_instant <= midp + radius (el testigo vio el nonce después del sellado).
     """
+    if not isinstance(expected_nonce, bytes) or len(expected_nonce) != 32:
+        return {"ok": False, "errors": ["expected_nonce debe ser un digest de 32 bytes"], "window": None}
+    if anchor.get("type") != ANCHOR_TYPE:
+        return {"ok": False, "errors": ["type de anclaje inválido"], "window": None}
     receipt = dict(anchor)
     receipt["type"] = RECEIPT_TYPE
-    res = verify_receipt(receipt, trusted_pubkeys_b64)
+    res = verify_receipt(receipt, trusted_pubkeys_b64, expected_nonce=expected_nonce)
     if not res["ok"]:
         return res
     lo, hi = res["window"]

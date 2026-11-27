@@ -42,11 +42,13 @@ GusClockState gus_clock_classify(const GusClockReading *reading,
 
     /* Sin cota válida: solo hay HOLDOVER si existe un ancla previa dentro
      * de la ventana y la lectura es coherente con el delta monotónico. */
-    if (last_anchor && last_anchor->monotonic_ns > 0 &&
+    if (last_anchor && last_anchor->state == GUS_CLOCK_VERIFIED && last_anchor->monotonic_ns > 0 &&
         reading->monotonic_ns >= last_anchor->monotonic_ns &&
         policy->max_holdover_s > 0) {
         long long dt_ns = reading->monotonic_ns - last_anchor->monotonic_ns;
-        if (dt_ns / 1000000000LL <= policy->max_holdover_s) {
+        long long elapsed_s = dt_ns / 1000000000LL;
+        if (elapsed_s < policy->max_holdover_s ||
+            (elapsed_s == policy->max_holdover_s && dt_ns % 1000000000LL == 0)) {
             /* Coherencia: |lectura − (ancla + Δmono redondeado)| <= 2 s
              * (tolerancia de granularidad); si el reloj se desvía del
              * ancla más allá de la deriva máxima declarada, no hay
@@ -65,4 +67,3 @@ GusClockState gus_clock_classify(const GusClockReading *reading,
      * desconocida; JAMÁS un VERIFIED silencioso). */
     return policy->strict ? GUS_CLOCK_REJECTED : GUS_CLOCK_UNVERIFIED;
 }
-

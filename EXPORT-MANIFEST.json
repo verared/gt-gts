@@ -1,11 +1,11 @@
 {
   "schema": "gerarion-export-manifest/1",
   "module": "gt-gts",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "maturity": "stable-core/experimental-roughtime",
   "source_repo": "verared/gerarion",
-  "source_tag": "v3.3.0",
-  "source_commit": "7d4bf95f29956888f6f19590ae2b024125828d12",
+  "source_tag": "v3.4.0",
+  "source_commit": "277f99118e23388fd84afecbd47a4f92805528e5",
   "dependencies": {
     "gt-core": ">=3.2.0,<4.0.0"
   },
@@ -16,15 +16,15 @@
     "LICENSES/CC0-1.0.txt": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
     "LICENSES/MIT.txt": "757fbdb81df81bd060d17276424bd4fc26269e780599988c3ce8fba4260b0b20",
     "NOTICE": "6af3a8bb6fe83f1b2d2f3d76528ab1f2b8e56da842c1de81673385821513e835",
-    "README.es.md": "ba91e51dc302faeffb4d20cf05bca93372fb83ee68eaa0f16e97d1945e27992c",
-    "README.md": "7d1bc6b397b16d62a3e3e22b2e067f0809bcb278683ce58b50dc7da6bf04b700",
-    "REUSE.toml": "7617d31464b9db5409ed2f7f1a0a45e846bbdfdfa238795be57728dc13dda096",
+    "README.es.md": "4f43a3eaf929205de5f0e8e091e0b9ebb5964be5d5b58ae83ed3ba5fdaad1f51",
+    "README.md": "a7106069cfd3770eddc9d9ae0e20f10894ad0249cbf6cda4ea25741605765df4",
+    "REUSE.toml": "66d75ba39735f935a6cbae178c425396a2ad3f46fd092b05b51d9bde1d650642",
     "docs/specs/GTS.en.md": "98c80eb3972c93fae6ea46a92e7b297e3fc5d210463533235b8dd2896f695bbc",
     "docs/specs/GTS.es.md": "917429e1f13fe0a3f53c3dc9f685e55cad146c5f2745833dac1841ba64c475ec",
-    "impl-c/clock/gus_clock.c": "f3cb99a99dedd0e6651d22bde2cc1347012d5cd983441825a5a53aa4c5181cd5",
+    "impl-c/clock/gus_clock.c": "b4dd4d21d8706b63b90be535c22720e7a1cb5d27a1912dd13dcc442746775380",
     "impl-c/clock/gus_clock.h": "79eff4bc23009fadb70e0c078b6259a2eca68805b31e00980073cff1fdc83e20",
     "src/gerarion/gts/__init__.py": "915d214a9cfce74a8ed698997e530861bcbe7601d9449b77e7b4776ce6daa470",
-    "src/gerarion/gts/clock.py": "5ab7e5fcaa88c37d4ae06e52e4bf18a8b5712707852e21093a314c2c2ac750d9",
-    "src/gerarion/gts/roughtime.py": "14fdd741a0073bb59628f3eb1e46143a6e37cf0366b1485388aea7aa8b6ade91"
+    "src/gerarion/gts/clock.py": "18df513e50e591a6dd4076df3c451deaf5cdd98cfd4eb25b9ca1a372e5ed654c",
+    "src/gerarion/gts/roughtime.py": "757320b86f7e562901408e09258e4ac4d00e36cc5ea01414848c12035b36c0c2"
   }
 }
